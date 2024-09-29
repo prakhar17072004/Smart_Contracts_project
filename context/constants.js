@@ -196,7 +196,7 @@ export const TOKEN_ICO_CONTRACT = async () => {
     const web3Modal = new Web3Modal();  // Make sure to initialize Web3Modal properly
     const connection = await web3Modal.connect();
     
-    const provider = new ethers.providers.Web3Provider(connection);
+    const provider = new ethers.providers.Web3provider(window.ethereum);
     const signer = provider.getSigner();
 
     // Fetch contract instance

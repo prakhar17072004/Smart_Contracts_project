@@ -48,9 +48,138 @@ const index = () => {
       };
       fetchData();
       
-    },[]);
+    },[account]);
 
-  return <div>@TheEthereumCoders </div>;
+  return(
+    <>
+    <div className="body_wrap">
+ {ownerModal && 
+   <Owner setOwnerModal={setOwnerModal}
+     currency={currency}
+      details ={details}
+      account={account}
+    setTransferCurrency={setTransferCurrency}
+      setTranferModal={setTransferModal}
+      setOpenDonote={setOpenDonote}
+      TOKEN_WITHDRAW={TOKEN_WITHDRAW}
+      setOpenUpdatePrice={setOpenUpdatePrice}
+     setOpenUpdateAddress={setOpenUpdateAddress}
+
+      />
+
+ }
+
+
+{
+  buyModal && 
+  <Popup setBuyModal={setBuyModal}
+  BUY_TOKEN={BUY_TOKEN}
+  currency={currency}
+  details={details}
+  account={account}
+  ERC20={ERC20}
+  TOKEN_ADDRESS={TOKEN_ADDRESS}
+  />
+
+}
+
+{
+  tranferModal &&
+  <TransferToken 
+  setTransferModal = {setTranferModal}
+  TRANSFER_TOKEN={TRANSFER_TOKEN}
+  ERC20={ERC20}
+  setLoader={setLoader}
+  />
+
+}
+
+{
+  transferCurrency &&
+  <TransferCurrency 
+  TRANSFER_ETHER={TRANSFER_ETHER}
+  setTransferCurrency={setTransferCurrency}
+  details={details}
+  currency={currency}
+  CHECK_ACCOUNT_BALANCE={CHECK_ACCOUNT_BALANCE}
+  setLoader={setLoader}
+  />
+
+}
+
+{
+  openDonote &&
+  <Donate 
+    details={details}
+    currency={currency}
+    setOpenDonote={setOpenDonote}
+    DONATE={DONATE}
+
+/>
+}
+
+{
+  openUpdatePrice&&
+  <UpdatePrice 
+  details={details}
+  currency={currency}
+  setOpenUpdatePrice={setOpenUpdatePrice}
+  UPDATE_TOKEN_PRICE={UPDATE_TOKEN_PRICE}
+  />
+}
+
+{
+  openUpdateAddress&&
+  <UpdateAddress 
+  
+  details={details}
+  currency={currency}
+  setOpenUpdateAddress={setOpenUpdateAddress}
+  UPDATE_TOKEN={UPDATE_TOKEN}
+  ERC20={ERC20}
+  setLoader={setLoader}
+  
+  />
+}
+
+{
+  loader && 
+  <Loader/>
+}
+
+<Header
+account={account}
+CONNECT_WALLET={CONNECT_WALLET}
+setAccount={setAccount}
+setLoader={setLoader}
+setOwnerModal={setOwnerModal}
+shortenAddress={shortenAddress}
+details={details}
+currency={currency}
+ownerModal={ownerModal}
+/>
+<Sidebar/>
+
+<Hero setBuyModal={setBuyModal}
+ account={account}
+ CONNECT_WALLET={CONNECT_WALLET}
+ setAccount={setAccount}
+ setLoader={setLoader}details={details}
+ addTokenToMeteMask={addTokenToMeteMask}
+ />
+ <About/>
+ <Features/>
+ <Token/>
+ <TokenInfo details={details}/>
+ <Team/>
+ <Faq/>
+ <Contact/>
+ <Footer/>
+
+      </div>
+  
+  </>
+  ) 
 };
 
 export default index;

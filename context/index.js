@@ -247,6 +247,7 @@ return <TOKEN_ICO_CONTEXT.Provider value={{
     TRANSFER_ETHER,
     TRANSFER_TOKEN,
     CHECK_WALLET_CONNECTED,
+    CONNECTED_WALLET,
     ERC20,
     CHECK_ACCOUNT_BALANCE,
     setAccount,
@@ -254,6 +255,8 @@ return <TOKEN_ICO_CONTEXT.Provider value={{
     addTokenToMeteMask,
     TOKEN_ADDRESS,loader,
     account,
+    currency,
+    loader,
     currency,
     
 
