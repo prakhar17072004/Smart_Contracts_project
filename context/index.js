@@ -237,7 +237,7 @@ const TRANSFER_TOKEN = async (transfer) => {
   }
 };
 
-return <TOKEN_ICO_CONTEXT_.Provider value={{
+return <TOKEN_ICO_CONTEXT.Provider value={{
     TOKEN_ICO,
     BUY_TOKEN,
     TOKEN_WITHDRAW,
@@ -252,7 +252,10 @@ return <TOKEN_ICO_CONTEXT_.Provider value={{
     setAccount,
     setLoader,
     addTokenToMeteMask,
+    TOKEN_ADDRESS,loader,
+    account,
+    currency,
     
 
-}}>{children}</TOKEN_ICO_CONTEXT_.Provider>;
+}}>{children}</TOKEN_ICO_CONTEXT.Provider>;
 };

@@ -1,18 +1,20 @@
 import {ethers} from "ethers";
-import Web3Modal from "web3Modal";
+import Web3Modal from "web3modal";
+
 
 
 //INTERNAL IMPORT
 
+//import { CONTRACT_ADDRESS, CONTRACT_ABI } from "./constants";
 import tokenICO from "./TokenICO.json";
 import erc20 from "./ERC20.json";
 
 
-export const TOKEN_ADDRESS ="";
-export const ERC20_ABI = "";
-export const  OWNER_ADDRESS = "";
-export const CONTRACT_ADDRESS = "";
-export const CONTRACT_ABI = "";
+export const TOKEN_ADDRESS ="0x19f66Ca9242Dc9B8Cd0227f30035CC16F2Ac0662";
+export const ERC20_ABI =  erc20.abi;
+export const  OWNER_ADDRESS = "0x045bF278458Ff7A5DBEF5C4e09D33Ef1377D427b";
+export const CONTRACT_ADDRESS = "0xbd7c3b613B8dBf80C9f1eCf5a4042fB87068a4F1";
+export const CONTRACT_ABI = tokenICO.abi;
 
 
 
@@ -183,31 +185,38 @@ export const  CONNECTED_WALLET = async ()=>{
 };
 
    
-const fetchContract = (address, abi, singer)=>{
-  new ethers.Contract(address,abi,singer);
-}
+// Function to fetch the contract
+const fetchContract = (address, abi, signer) => {
+  return new ethers.Contract(address, abi, signer);
+};
 
-export const TOKEN_ICO_CONTRACT = async()=>{
-  try{
-    const web3Modal = new web3Modal();
+export const TOKEN_ICO_CONTRACT = async () => {
+  try {
+    // Initialize Web3Modal correctly
+    const web3Modal = new Web3Modal();  // Make sure to initialize Web3Modal properly
     const connection = await web3Modal.connect();
-   const provider = new ethers.providers.web3provider(connection);
-   const signer = provider.getSigner();
-   const contract = fetchContract(CONTRACT_ADDRESS,CONTRACT_ABI,signer)
-   return contract
-  }
-  catch(err){
-    console.log(err);
-  }
-}
+    
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
 
-export const ERC20 = async()=>{
+    // Fetch contract instance
+    const contract = fetchContract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+    return contract;
+  } catch (err) {
+    console.error("Error in TOKEN_ICO_CONTRACT:", err.message);
+  }
+};
+
+export const ERC20 = async(ADDRESS)=>{
   try{
     const web3Modal = new web3Modal();
     const connection = await web3Modal.connect();
    const provider = new ethers.providers.web3provider(connection);
    const network = provider.getNetwork();
    const signer = provider.getSigner();
+
+   //fix
+   const contract =fetchContract(ADDRESS,ERC20_ABI,signer);
 
 
    const userAddress = signer.getAddress();
@@ -282,41 +291,39 @@ export const CHECK_ACCOUNT_BALANCE = async(ADDRESS)=>{
 }
 
 
-export const addTokenToMeteMask= async()=>{
-  if(window.ethereum){
+export const addTokenToMeteMask = async () => {
+  if (window.ethereum) {
     const tokenDetails = await ERC20(TOKEN_ADDRESS);
     const tokenDecimals = tokenDetails?.decimals;
     const tokenSymbol = tokenDetails?.symbol;
     const tokenAddress = TOKEN_ADDRESS;
-    const tokenImage = "";
+    const tokenImage = "https://www.daulathussain.com/wp-content/uploads/2024/05/theblockchaincoders.jpg";
 
-    try{
+    try {
       const wasAdded = await window.ethereum.request({
-        method:"wallet_wasAsset",
+        method: "wallet_watchAsset",
         params: {
-          type:"ERC20",
-          options:{
+          type: "ERC20",
+          options: {
             address: tokenAddress,
             symbol: tokenSymbol,
-            decimals:tokenDecimals,
-            image:tokenImage,
-          }
-        }
+            decimals: tokenDecimals,
+            image: tokenImage,
+          },
+        },
       });
-      if(wasAdded){
+      if (wasAdded) {
         return "Token is added";
-
+      } else {
+        return "Token not added";
       }
-      else{
-         return "not added";
-      }
+    } catch (err) {
+      return "Failed to add token";
     }
-    catch(err) {
-      return "failed to add"
-    }
-  }else{
-    return "MeteMask is not installed";
+  } else {
+    return "MetaMask is not installed";
   }
-}
-const tokenImage =
-      "https://www.daulathussain.com/wp-content/uploads/2024/05/theblockchaincoders.jpg";
+};
+
+// const tokenImage =
+//       "https://www.daulathussain.com/wp-content/uploads/2024/05/theblockchaincoders.jpg";
