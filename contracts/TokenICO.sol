@@ -19,7 +19,7 @@
     uint256 public soldTokens;
     //    call by only owner 
      modifier onlyOwner(){
-        require(msg.sender==owner,"only contract owner can perform this action");
+        require(msg.sender== owner,"only contract owner can perform this action");
         _;
      } 
 
@@ -57,7 +57,7 @@
  function getTokenDetails() public  view returns(string memory name, string memory symbol , uint256 balance ,uint256 supply ,uint256 tokenPrice, address tokenAddr ) {
    ERC20 token = ERC20(tokenAddress);
 
-    return (
+    return(
       token.name(),
       token.symbol(),
       token.blanceOf(address(this)),

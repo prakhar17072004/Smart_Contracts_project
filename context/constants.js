@@ -150,7 +150,7 @@ export const CHECK_WALLET_CONNECTED = async ()=>{
    await handleNetworkSwitch();
 
 
-   const account  = await window.ethereum.request({method: "eth_accounts"});
+   const account  = await window.ethereum.request({method:"eth_accounts"});
 
    if(account.length)
    {

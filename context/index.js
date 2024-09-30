@@ -30,9 +30,10 @@ export const TOKEN_ICO_Provider = ({ children }) => {
   //CONTRACT FUNCTION
   const TOKEN_ICO = async () => {
     try {
-      const address = await CHECK_WALLET_CONNECTED;
+      setLoader(true);
+      const address = await CHECK_WALLET_CONNECTED();
       if (address) {
-        setLoader(true);
+        
         setAccount(address);
         const contract = await TOKEN_ICO_CONTRACT();
         const tokenDetails = await contract.getTokenDetails();
@@ -59,15 +60,15 @@ export const TOKEN_ICO_Provider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
-      notifyError("try again");
+      notifyError("Error during ico token");
       setLoader(false);
     }
   };
 
-const BUY_TOKEN = async () => {
+const BUY_TOKEN = async (amount) => {
   try {
     setLoader(true);
-    const address = await CHECK_WALLET_CONNECTED;
+    const address = await CHECK_WALLET_CONNECTED();
     if (address) {
       const contract = await TOKEN_ICO_CONTRACT();
       const tokenDetails = await contract.getTokenDetails();
@@ -92,7 +93,7 @@ const BUY_TOKEN = async () => {
     }
   } catch (error) {
     console.log(error);
-    notifyError("try again");
+    notifyError("error during buying token");
     setLoader(false);
   }
 };
@@ -100,7 +101,7 @@ const BUY_TOKEN = async () => {
 const TOKEN_WITHDRAW = async () => {
   try {
     setLoader(true);
-    const address = await CHECK_WALLET_CONNECTED;
+    const address = await CHECK_WALLET_CONNECTED();
     if (address) {
       const contract = await TOKEN_ICO_CONTRACT();
       const tokenDetails = await contract.getTokenDetails();
@@ -118,14 +119,14 @@ const TOKEN_WITHDRAW = async () => {
     }
   } catch (error) {
     console.log(error);
-    notifyError("try again");
+    notifyError("error during token withdraw");
     setLoader(false);
   }
 };
 const UPDATE_TOKEN = async (_address) => {
   try {
     setLoader(true);
-    const address = await CHECK_WALLET_CONNECTED;
+    const address = await CHECK_WALLET_CONNECTED();
     if (address) {
       const contract = await TOKEN_ICO_CONTRACT();
 
@@ -137,7 +138,7 @@ const UPDATE_TOKEN = async (_address) => {
     }
   } catch (error) {
     console.log(error);
-    notifyError("try again");
+    notifyError("error during update token");
     setLoader(false);
   }
 };
@@ -145,7 +146,7 @@ const UPDATE_TOKEN = async (_address) => {
 const UPDATE_TOKEN_PRICE = async (price) => {
   try {
     setLoader(true);
-    const address = await CHECK_WALLET_CONNECTED;
+    const address = await CHECK_WALLET_CONNECTED();
     if (address) {
       const contract = await TOKEN_ICO_CONTRACT();
       const payAmount = ethers.utils.parseUnits(price.toString(), "ether");
@@ -158,14 +159,14 @@ const UPDATE_TOKEN_PRICE = async (price) => {
     }
   } catch (error) {
     console.log(error);
-    notifyError("try again");
+    notifyError("error during update token price");
     setLoader(false);
   }
 };
 const DONATE = async (AMOUNT) => {
   try {
     setLoader(true);
-    const address = await CHECK_WALLET_CONNECTED;
+    const address = await CHECK_WALLET_CONNECTED();
     if (address) {
       const contract = await TOKEN_ICO_CONTRACT();
       const payAmount = ethers.utils.parseUnits(price.toString(), "ether");
@@ -181,7 +182,7 @@ const DONATE = async (AMOUNT) => {
     }
   } catch (error) {
     console.log(error);
-    notifyError("try again");
+    notifyError("error during donate");
     setLoader(false);
   }
 };
@@ -191,7 +192,7 @@ const TRANSFER_ETHER = async (transfer) => {
     setLoader(true);
 
     const { _receiver, _amount } = transfer;
-    const address = await CHECK_WALLET_CONNECTED;
+    const address = await CHECK_WALLET_CONNECTED();
     if (address) {
       const contract = await TOKEN_ICO_CONTRACT();
       const payAmount = ethers.utils.parseUnits(_amount.toString(), "ether");
@@ -207,7 +208,7 @@ const TRANSFER_ETHER = async (transfer) => {
     }
   } catch (error) {
     console.log(error);
-    notifyError("try again");
+    notifyError("error during trasfer ether");
     setLoader(false);
   }
 };
@@ -217,7 +218,7 @@ const TRANSFER_TOKEN = async (transfer) => {
     setLoader(true);
 
     const { _tokenAddress, _sendTo, _amount } = transfer;
-    const address = await CHECK_WALLET_CONNECTED;
+    const address = await CHECK_WALLET_CONNECTED();
     if (address) {
       const contract = await ERC20_CONTRACT(_tokenAddress);
       const payAmount = ethers.utils.parseUnits(_amount.toString(), "ether");
@@ -232,7 +233,7 @@ const TRANSFER_TOKEN = async (transfer) => {
     }
   } catch (error) {
     console.log(error);
-    notifyError("try again");
+    notifyError("error during token transfer");
     setLoader(false);
   }
 };

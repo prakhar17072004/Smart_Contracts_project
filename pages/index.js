@@ -2,8 +2,29 @@ import React,{useState, useEffect,useContext} from "react";
 
 
 import { 
-  Footer, Header,About, Features,Brand, Contact,Faq, Hero,Sidebar,Donate,
-     Loader,Owner, Popup,Progress,Roadmap,Team,Token,TokenInfo,TransferCurrency,TransferToken,UpdatePrice,UpdateAddress
+  Footer,
+   Header,
+   About,
+    Features,
+    Brand,
+     Contact,
+     Faq,
+      Hero,
+      Sidebar
+      ,Donate,
+
+     Loader,
+     Owner,
+      Popup,
+      Progress,
+      Roadmap,
+      Team,
+      Token,
+      TokenInfo,
+      TransferCurrency,
+      TransferToken,
+      UpdatePrice,
+      UpdateAddress,CONNECT_WALLET,
  } from "../Components/index";
  import {TOKEN_ICO_CONTEXT}from "../context/index"
  import {shortenAddress}from "../Utils/index"
@@ -48,7 +69,7 @@ const index = () => {
       };
       fetchData();
       
-    },[account]);
+    },[]);
 
   return(
     <>
@@ -72,7 +93,8 @@ const index = () => {
 
 {
   buyModal && 
-  <Popup setBuyModal={setBuyModal}
+  <Popup
+   setBuyModal={setBuyModal}
   BUY_TOKEN={BUY_TOKEN}
   currency={currency}
   details={details}
@@ -86,7 +108,7 @@ const index = () => {
 {
   tranferModal &&
   <TransferToken 
-  setTransferModal = {setTranferModal}
+  setTransferModal = {setTransferModal}
   TRANSFER_TOKEN={TRANSFER_TOKEN}
   ERC20={ERC20}
   setLoader={setLoader}
