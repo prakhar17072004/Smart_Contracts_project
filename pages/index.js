@@ -75,7 +75,8 @@ const index = () => {
     <>
     <div className="body_wrap">
  {ownerModal && 
-   <Owner setOwnerModal={setOwnerModal}
+   <Owner 
+   setOwnerModal={setOwnerModal}
      currency={currency}
       details ={details}
       account={account}

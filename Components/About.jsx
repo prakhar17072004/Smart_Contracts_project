@@ -9,7 +9,7 @@ const About = () => {
             <div className="about__img pos-rel wow fadeInLeft">
               <img src="assets/img/about/about_img.png" alt="" />
               <div className="about_shape">
-                <img src="assets/img/shape/about_shape" />
+                <img src="assets/img/shape/about_shape.png" />
               </div>
             </div>
           </div>
