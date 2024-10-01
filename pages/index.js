@@ -192,7 +192,7 @@ ownerModal={ownerModal}
  <About/>
  <Features/>
  <Token/>
- <TokenInfo details={details}/>
+ <TokenInfo details={details} currency={currency} />
  <Team/>
  <Faq/>
  <Contact/>

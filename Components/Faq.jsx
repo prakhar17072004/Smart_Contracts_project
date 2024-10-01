@@ -32,7 +32,7 @@ const Faq = () => {
                               </div>
             </div>
           </li>
-          <li className="accordin block ">
+          <li className="accordion block ">
             <div className="acc-btn ">
               <span>QA:1 <span>Type your questions about your projects of ICO?</span></span>
             </div>
@@ -64,7 +64,7 @@ const Faq = () => {
                   Lorem5000
                 </p>
                 <ul>
-                  <li>lorem5000</li>
+                  <li>lorem1000</li>
                   <li>lorem5000</li>
                   <li>lorem5000</li>
                   <li>lorem5000</li>
@@ -76,7 +76,7 @@ const Faq = () => {
                               </div>
             </div>
           </li>
-          <li className="accordin block ">
+          <li className="accordion block ">
             <div className="acc-btn ">
               <span>QA:1 <span>Type your questions about your projects of ICO?</span></span>
             </div>
