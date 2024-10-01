@@ -93,7 +93,7 @@ const index = () => {
 
 {
   buyModal && 
-  <Popup
+  < Popup
    setBuyModal={setBuyModal}
   BUY_TOKEN={BUY_TOKEN}
   currency={currency}

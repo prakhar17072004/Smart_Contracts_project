@@ -1,7 +1,7 @@
 import React from "react";
 
 const Popup = () => {
-  return <div>Popup</div>;
+  return <div></div>;
 };
 
 export default Popup;
