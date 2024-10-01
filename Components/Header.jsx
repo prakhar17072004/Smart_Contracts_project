@@ -63,26 +63,26 @@ const Header = ({
             <div className="main-menu_wrap ul_li navbar navbar-expand-xl">
               <nav className="main-menu collapse navbar-collapse">
                 <ul>
-                  <li className="active has-mega-menu">
-                    <a href="/">Home</a>
+                  <li >
+                    <a className="active has-mega-menu"href="/">Home</a>
                   </li>
-                  <li className="scrollspy-btn">
-                    <a href="#about">About</a>
+                  <li >
+                    <a className="scrollspy-btn" href="#about">About</a>
                   </li>
-                  <li className="scrollspy-btn">
-                    <a href="#roadmap">Roadmap</a>
+                  <li >
+                    <a className="scrollspy-btn" href="#roadmap">Roadmap</a>
                   </li>
-                  <li className="scrollspy-btn">
-                    <a href="#team">Team</a>
+                  <li >
+                    <a  className="scrollspy-btn" href="#team">Team</a>
                   </li>
-                  <li className="scrollspy-btn">
-                    <a href="#faq">Faq</a>
+                  <li >
+                    <a className="scrollspy-btn" href="#faq">Faq</a>
                   </li>
-                  <li className="scrollspy-btn">
-                    <a href="#contact">Contact</a>
+                  <li >
+                    <a  className="scrollspy-btn" href="#contact">Contact</a>
                   </li>
-                  <li className="scrollspy-btn">
-                    <a
+                  <li>
+                    <a  className="scrollspy-btn"
                       style={{
                         cursor: "pointer",
                       }}
