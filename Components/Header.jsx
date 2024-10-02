@@ -11,8 +11,12 @@ const Header = ({
   currency,
   ownerModal,
 }) => {
-  const [isMetaMaskInstalled, setIsMeteMaskInstalled] = useState(false);
-
+  const [isMeteMaskInstalled, setIsMeteMaskInstalled] = useState(false);
+    const connectWallet = async () => {
+    setLoader(true);
+    const address = await CONNECT_WALLET();
+    setAccount(address);
+     }
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
       setIsMeteMaskInstalled(true);
@@ -124,7 +128,7 @@ const Header = ({
                 </div>
               ) : (
                 <div className="header__account">
-                  <a onClick={() => connectMetamask()}>Connect Wallet</a>
+                  <a onClick={() => connectWallet(true)}>Connect Wallet</a>
                 </div>
               )}
             </div>

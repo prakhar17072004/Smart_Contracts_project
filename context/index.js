@@ -47,10 +47,10 @@ export const TOKEN_ICO_Provider = ({ children }) => {
           symbol: tokenDetails.symbol,
           supply: ethers.utils.formatEther(tokenDetails.supply.toString()),
           tokenPrice: ethers.utils.formatEther(
-            tokenDetails.tokenPrice.toString()
+          tokenDetails.tokenPrice.toString()
           ),
           tokenAddr: tokenDetails.tokenAddr,
-          matiBal: ethBal,
+          maticBal: ethBal,
           address: address.toLowerCase(),
           owner: contractOwner.toLowerCase(),
           soldTokens: soldTokens.toNumber(),

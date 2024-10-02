@@ -12,8 +12,7 @@ import {
       Hero,
       Sidebar
       ,Donate,
-
-     Loader,
+       Loader,
      Owner,
       Popup,
       Progress,
@@ -24,14 +23,16 @@ import {
       TransferCurrency,
       TransferToken,
       UpdatePrice,
-      UpdateAddress,CONNECT_WALLET,
+      UpdateAddress,
+      CONNECT_WALLET,
  } from "../Components/index";
  import {TOKEN_ICO_CONTEXT}from "../context/index"
  import {shortenAddress}from "../Utils/index"
 
 
 const index = () => {
-  const {  TOKEN_ICO,
+  const { 
+    TOKEN_ICO,
     BUY_TOKEN,
     TOKEN_WITHDRAW,
     UPDATE_TOKEN,
@@ -39,6 +40,7 @@ const index = () => {
     DONATE ,
     TRANSFER_ETHER,
     TRANSFER_TOKEN,
+    CONNECTED_WALLET,
     CHECK_WALLET_CONNECTED,
     ERC20,
     CHECK_ACCOUNT_BALANCE,
@@ -93,7 +95,7 @@ const index = () => {
 
 
 {
-  buyModal && 
+  !buyModal && 
   < Popup
    setBuyModal={setBuyModal}
   BUY_TOKEN={BUY_TOKEN}
@@ -142,7 +144,7 @@ const index = () => {
 }
 
 {
-  openUpdatePrice&&
+openUpdatePrice&&
   <UpdatePrice 
   details={details}
   currency={currency}
@@ -172,7 +174,7 @@ const index = () => {
 
 <Header
 account={account}
-CONNECT_WALLET={CONNECT_WALLET}
+CONNECT_WALLET={CONNECTED_WALLET}
 setAccount={setAccount}
 setLoader={setLoader}
 setOwnerModal={setOwnerModal}
@@ -185,7 +187,7 @@ ownerModal={ownerModal}
 
 <Hero setBuyModal={setBuyModal}
  account={account}
- CONNECT_WALLET={CONNECT_WALLET}
+ CONNECT_WALLET={CONNECTED_WALLET}
  setAccount={setAccount}
  setLoader={setLoader}details={details}
  addTokenToMeteMask={addTokenToMeteMask}

@@ -16,6 +16,8 @@ const Hero = ({
   const connectWallet = async () => {
     setLoader(true);
     const address = await CONNECT_WALLET();
+
+    console.log(CONNECT_WALLET);
     setAccount(address);
   };
   const [percentage, setPercentage] = useState();
@@ -24,11 +26,11 @@ const Hero = ({
     const calculatePercentage = () => {
       const tokenSold = details?.soldToken ?? 0;
       const tokenTotalSupply =
-        details?.soldToken + Number(decimals?.tokenBal) * 1 ?? 1;
+        details?.soldToken + Number(details?.tokenBal) * 1 ?? 1;
 
       const percentageNew = (tokenSold / tokenTotalSupply) * 100;
 
-      if (tokenTotalSupply == 0) {
+      if (tokenTotalSupply === 0) {
         console.log("Token sal blance is zero and cannot calculate percentage");
       } else {
         setPercentage(percentageNew);
@@ -62,13 +64,13 @@ const Hero = ({
                     PURCHASE TOKEN
                   </a>
                 ) : (
-                  <a className="thm-btn " onClick={() => connectWallet()}>
+                  <a className="thm-btn " onClick={() => connectWallet(true)}>
                     Connect Wallet
                   </a>
                 )}
 
                 <a
-                  className="thm-btn thm-btn--dark"
+                  className="thm-btn  thm-btn--dark"
                   onClick={() => ADD_TOKEN_METAMASK()}
                 >
                   Add Metamask
