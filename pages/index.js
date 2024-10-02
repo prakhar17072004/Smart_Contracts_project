@@ -167,10 +167,10 @@ openUpdatePrice&&
   />
 }
 
-{
+{/* {
   loader && 
   <Loader/>
-}
+} */}
 
 <Header
 account={account}
