@@ -52,9 +52,9 @@ const index = () => {
     account,
     currency,} =useContext(TOKEN_ICO_CONTEXT);
 
-    const [ownerModal,setOwnerModal]=useState(false);
-    const [buyModal,setBuyModal]=useState(true);
-    const [tranferModal,setTransferModal]=useState(false);
+    const [ownerModel,setOwnerModel]=useState(false);
+    const [buyModel,setBuyModel]=useState(true);
+    const [tranferModel,setTransferModel]=useState(false);
     const [transferCurrency,setTransferCurrency]=useState(false);
     const [openDonote,setOpenDonote]=useState(false);
     const [openUpdatePrice,setOpenUpdatePrice]=useState(false);
@@ -71,19 +71,21 @@ const index = () => {
       };
       fetchData();
       
-    },[]);
+    },[account]);
 
   return(
     <>
     <div className="body_wrap">
- {ownerModal && 
+
+
+ {ownerModel && 
    <Owner 
-   setOwnerModal={setOwnerModal}
+   setOwnerModel={setOwnerModel}
      currency={currency}
       details ={details}
       account={account}
     setTransferCurrency={setTransferCurrency}
-      setTranferModal={setTransferModal}
+      setTranferModel={setTransferModel}
       setOpenDonote={setOpenDonote}
       TOKEN_WITHDRAW={TOKEN_WITHDRAW}
       setOpenUpdatePrice={setOpenUpdatePrice}
@@ -95,23 +97,24 @@ const index = () => {
 
 
 {
-  !buyModal && 
+  buyModel && 
   < Popup
-   setBuyModal={setBuyModal}
+   setBuyModel={setBuyModel}
   BUY_TOKEN={BUY_TOKEN}
   currency={currency}
   details={details}
   account={account}
   ERC20={ERC20}
   TOKEN_ADDRESS={TOKEN_ADDRESS}
+  setLoader={setLoader}
   />
 
 }
 
 {
-  tranferModal &&
+  tranferModel &&
   <TransferToken 
-  setTransferModal = {setTransferModal}
+  setTransferModel = {setTransferModel}
   TRANSFER_TOKEN={TRANSFER_TOKEN}
   ERC20={ERC20}
   setLoader={setLoader}
@@ -122,8 +125,9 @@ const index = () => {
 {
   transferCurrency &&
   <TransferCurrency 
-  TRANSFER_ETHER={TRANSFER_ETHER}
+ 
   setTransferCurrency={setTransferCurrency}
+  TRANSFER_ETHER={TRANSFER_ETHER}
   details={details}
   currency={currency}
   CHECK_ACCOUNT_BALANCE={CHECK_ACCOUNT_BALANCE}
@@ -154,7 +158,7 @@ openUpdatePrice&&
 }
 
 {
-  openUpdateAddress&&
+  openUpdateAddress &&
   <UpdateAddress 
   
   details={details}
@@ -167,29 +171,32 @@ openUpdatePrice&&
   />
 }
 
-{/* {
+{
   loader && 
   <Loader/>
-} */}
+}
 
 <Header
 account={account}
-CONNECT_WALLET={CONNECTED_WALLET}
-setAccount={setAccount}
 setLoader={setLoader}
-setOwnerModal={setOwnerModal}
-shortenAddress={shortenAddress}
+CONNECTED_WALLET={CONNECTED_WALLET}
+setAccount={setAccount}
 details={details}
+setOwnerModel={setOwnerModel}
+shortenAddress={shortenAddress}
+
 currency={currency}
-ownerModal={ownerModal}
+ownerModel={ownerModel}
 />
 <Sidebar/>
 
-<Hero setBuyModal={setBuyModal}
+<Hero 
+setBuyModel={setBuyModel}
  account={account}
- CONNECT_WALLET={CONNECTED_WALLET}
+ CONNECTED_WALLET={CONNECTED_WALLET}
  setAccount={setAccount}
- setLoader={setLoader}details={details}
+ setLoader={setLoader}
+ details={details}
  addTokenToMeteMask={addTokenToMeteMask}
  />
  <About/>

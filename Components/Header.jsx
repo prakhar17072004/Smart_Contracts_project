@@ -2,31 +2,31 @@ import React, { useState, useEffect, useContext } from "react";
 
 const Header = ({
   account,
-  CONNECT_WALLET,
+  CONNECTED_WALLET,
   setAccount,
   setLoader,
-  setOwnerModal,
+  setOwnerModel,
   shortenAddress,
   details,
   currency,
-  ownerModal,
+  ownerModel,
 }) => {
-  const [isMeteMaskInstalled, setIsMeteMaskInstalled] = useState(false);
+  const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(false);
     const connectWallet = async () => {
     setLoader(true);
-    const address = await CONNECT_WALLET();
+    const address = await CONNECTED_WALLET();
     setAccount(address);
      }
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
-      setIsMeteMaskInstalled(true);
+      setIsMetaMaskInstalled(true);
 
-      window.ethereum.on("accountChanged", handleAccountChanged);
+      window.ethereum.on("account Changed", handleAccountChanged);
     }
 
     return () => {
       if (typeof window.ethereum !== "undefined") {
-        window.ethereum.removeListener("accountChanged", handleAccountChanged);
+        window.ethereum.removeListener("account Changed", handleAccountChanged);
       }
     };
   }, []);
@@ -73,9 +73,9 @@ const Header = ({
                   <li >
                     <a className="scrollspy-btn" href="#about">About</a>
                   </li>
-                  <li >
+                  {/* <li >
                     <a className="scrollspy-btn" href="#roadmap">Roadmap</a>
-                  </li>
+                  </li> */}
                   <li >
                     <a  className="scrollspy-btn" href="#team">Team</a>
                   </li>
@@ -91,7 +91,7 @@ const Header = ({
                         cursor: "pointer",
                       }}
                       onClick={() =>
-                        ownerModal ? setOwnerModal(false) : setOwnerModal(true)
+                        ownerModel ? setOwnerModel(false) : setOwnerModel(true)
                       }
                     >
                       Tools

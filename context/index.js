@@ -12,6 +12,8 @@ import {
   ERC20,
   ERC20_CONTRACT,
   addTokenToMeteMask,
+  changeNetworks,
+  handleNetworkSwitch,
 } from "./constants";
 
 export const TOKEN_ICO_CONTEXT = React.createContext();
@@ -82,7 +84,7 @@ const BUY_TOKEN = async (amount) => {
         );
         const payAmount = ethers.utils.parseUnits(price.toString(), "ether");
         const transaction = await contract.buyToken(Number(account), {
-          value: availableToken.toString(),
+          value: payAmount.toString(),
           gasLimit: ethers.utils.hexlify(800000),
         });
       }
@@ -130,7 +132,7 @@ const UPDATE_TOKEN = async (_address) => {
     if (address) {
       const contract = await TOKEN_ICO_CONTRACT();
 
-      const transaction = await contract.updatToken();
+      const transaction = await contract.updatToken(_address);
       await transaction.wait();
       setLoader(false);
       notifySuccess("Transaction completed successfully");
@@ -151,7 +153,7 @@ const UPDATE_TOKEN_PRICE = async (price) => {
       const contract = await TOKEN_ICO_CONTRACT();
       const payAmount = ethers.utils.parseUnits(price.toString(), "ether");
 
-      const transaction = await contract.updatTokenSales(payAmount);
+      const transaction = await contract.updatTokenSalePrice(payAmount);
       await transaction.wait();
       setLoader(false);
       notifySuccess("Transaction completed successfully");
@@ -217,7 +219,7 @@ const TRANSFER_TOKEN = async (transfer) => {
   try {
     setLoader(true);
 
-    const { _tokenAddress, _sendTo, _amount } = transfer;
+    const { _tokenAddress,_amount,  _sendTo } = transfer;
     const address = await CHECK_WALLET_CONNECTED();
     if (address) {
       const contract = await ERC20_CONTRACT(_tokenAddress);
@@ -258,7 +260,7 @@ return <TOKEN_ICO_CONTEXT.Provider value={{
     account,
     currency,
     loader,
-    currency,
+    
     
 
 }}>{children}</TOKEN_ICO_CONTEXT.Provider>;

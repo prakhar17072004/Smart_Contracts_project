@@ -170,7 +170,7 @@ export const  CONNECTED_WALLET = async ()=>{
      await handleNetworkSwitch();
   
   
-     const account  = await window.ethereum.request({method: "eth_accounts"});
+     const account  = await window.ethereum.request({method: "eth_requestAccounts"});
     window.location.reload();
      
      
@@ -196,7 +196,7 @@ export const TOKEN_ICO_CONTRACT = async () => {
     const web3Modal = new Web3Modal();  // Make sure to initialize Web3Modal properly
     const connection = await web3Modal.connect();
     
-    const provider = new ethers.providers.Web3provider(window.ethereum);
+    const provider = new ethers.providers.Web3provider(connection);
     const signer = provider.getSigner();
 
     // Fetch contract instance
@@ -225,7 +225,7 @@ export const ERC20 = async(ADDRESS)=>{
     const symbol = await contract.symbol();
     const supply = await contract.tokenSupply();
     const decimals = await contract.decimals();
-    const address = await contract.address;
+    const address = await contract.address();
 
 
     const token = {
@@ -234,7 +234,7 @@ export const ERC20 = async(ADDRESS)=>{
       symbol: symbol,
       decimals: decimals,
       supply: ethers.utils.formatEther(supply.toString()),
-      balance: ethers.utils.formatEther(balance.toString()),
+      balance: ethers.utils.formatEther(supply.toString()),
       chainId:network.chainId,
     };
    return token;
@@ -246,9 +246,9 @@ export const ERC20 = async(ADDRESS)=>{
 
 export const ERC20_CONTRACT = async(CONTRACT_ADDRESS)=>{
   try{
-    const web3Modal = new web3Modal();
+    const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
-   const provider = new ethers.providers.web3provider(connection);
+   const provider = new ethers.providers.Web3provider(connection);
    const signer = provider.getSigner();
    const contract = fetchContract(CONTRACT_ADDRESS,ERC20_ABI,signer)
    return contract
@@ -260,13 +260,13 @@ export const ERC20_CONTRACT = async(CONTRACT_ADDRESS)=>{
 
 export const GET_BALANCE = async()=>{
   try{
-    const web3Modal = new web3Modal();
+    const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
-   const provider = new ethers.providers.web3provider(connection);
+   const provider = new ethers.providers.Web3provider(connection);
    const signer = provider.getSigner();
    
-   const matiBal = await signer.getBalance();
-  return ethers.utils.formatEther(balance.toString());
+   const maticBal = await signer.getBalance();
+  return ethers.utils.formatEther( maticBal.toString());
    
   }
   catch(err){
@@ -276,13 +276,13 @@ export const GET_BALANCE = async()=>{
 
 export const CHECK_ACCOUNT_BALANCE = async(ADDRESS)=>{
   try{
-    const web3Modal = new web3Modal();
+    const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
-   const provider = new ethers.providers.web3provider(connection);
+   const provider = new ethers.providers.Web3provider(connection);
   
    
-   const matiBal = await provider.getBalance(ADDRESS);
-  return ethers.utils.formatEther(balance.toString());
+   const maticBal = await provider.getBalance(ADDRESS);
+  return ethers.utils.formatEther(maticBal.toString());
    
   }
   catch(err){
