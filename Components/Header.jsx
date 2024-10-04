@@ -12,25 +12,25 @@ const Header = ({
   ownerModel,
 }) => {
   const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(false);
-    const connectWallet = async () => {
-    setLoader(true);
-    const address = await CONNECTED_WALLET();
-    setAccount(address);
-     }
+    // const connectWallet = async () => {
+    // setLoader(true);
+    // const address = await CONNECTED_WALLET();
+    // setAccount(address);
+    //  }
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
       setIsMetaMaskInstalled(true);
 
-      window.ethereum.on("account Changed", handleAccountChanged);
+      window.ethereum.on("accountChanged", handleAccountsChanged);
     }
 
     return () => {
       if (typeof window.ethereum !== "undefined") {
-        window.ethereum.removeListener("account Changed", handleAccountChanged);
+        window.ethereum.removeListener("accountChanged", handleAccountsChanged);
       }
     };
   }, []);
-  const handleAccountChanged = (account) => {
+  const handleAccountsChanged = (account) => {
     setAccount(account[0]);
   };
   const connectMetamask = async () => {
@@ -52,7 +52,7 @@ const Header = ({
       <div className="header_main-wrap">
         <div className="container mxw_1640 ">
           <div className="header_main ul_li_between">
-            <div className="header_left ul_li">
+            <div className="header__left ul_li">
               <div className="header__logo">
                 <a href="/">
                   <img
@@ -64,7 +64,7 @@ const Header = ({
               </div>
             </div>
 
-            <div className="main-menu_wrap ul_li navbar navbar-expand-xl">
+            <div className="main-menu__wrap ul_li navbar navbar-expand-xl">
               <nav className="main-menu collapse navbar-collapse">
                 <ul>
                   <li >
@@ -91,7 +91,7 @@ const Header = ({
                         cursor: "pointer",
                       }}
                       onClick={() =>
-                        ownerModel ? setOwnerModel(false) : setOwnerModel(true)
+                        ownerModel ? setOwnerModel(false) :setOwnerModel(true)
                       }
                     >
                       Tools
@@ -109,7 +109,7 @@ const Header = ({
                     <span />
                     <span />
                     <span />
-                    <span />
+                    
                   </div>
                 </a>
               </div>
@@ -128,7 +128,7 @@ const Header = ({
                 </div>
               ) : (
                 <div className="header__account">
-                  <a onClick={() => connectWallet(true)}>Connect Wallet</a>
+                  <a onClick={() => connectMetamask()}>Connect Wallet</a>
                 </div>
               )}
             </div>

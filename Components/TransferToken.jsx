@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 
 const TransferToken = ({
-  setTransferModal ,
+  setTransferModel ,
   TRANSFER_TOKEN,
   ERC20,
   setLoader,
@@ -42,7 +42,7 @@ const TransferToken = ({
       <div className="ico-contact__wrap">
         <h2 className="title">
           Transfer token
-          <strong onClick={()=>setTransferModal(false)}>X</strong>
+          <strong onClick={()=>setTransferModel(false)}>X</strong>
         </h2>
         <div className>
         <div className="row">

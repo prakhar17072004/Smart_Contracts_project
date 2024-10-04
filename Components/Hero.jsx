@@ -2,13 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import toast from "react-hot-toast";
 
 const Hero = ({
-  setBuyModal,
+  setBuyModel,
   account,
   CONNECTED_WALLET,
   setAccount,
   setLoader,
   details,
-  addTokenToMeteMask,
+  addTokenToMetaMask,
 }) => {
   const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
   const notifyError = (msg) => toast.err(msg, { duration: 2000 });
@@ -43,7 +43,7 @@ const Hero = ({
 
   const ADD_TOKEN_METAMASK = async () => {
     setLoader(true);
-    const response = await addTokenToMeteMask();
+    const response = await addTokenToMetaMask();
     setLoader(false);
     notifySuccess(response);
   };
@@ -60,11 +60,11 @@ const Hero = ({
               </h1>
               <div className="btns  ">
                 {account ? (
-                  <a className="thm-btn" onClick={() => setBuyModal(true)}>
+                  <a className="thm-btn" onClick={() => setBuyModel(true)}>
                     PURCHASE TOKEN
                   </a>
                 ) : (
-                  <a className="thm-btn " onClick={() => connectWallet(true)}>
+                  <a className="thm-btn " onClick={() => connectWallet()}>
                     Connect Wallet
                   </a>
                 )}
@@ -97,7 +97,7 @@ const Hero = ({
 
                 <div className="porgress">
                   <div className="progress-bar " role="progressbar " style={{
-                    width:`${percentage}`
+                    width:`${percentage }`
                   }}/>
                 </div>
 
@@ -118,7 +118,7 @@ const Hero = ({
                 <span>Explor Causes</span>
               </div>
               <div className="hero__countdown">
-                <h6 className="text-center mt-80">ICO will Start in...</h6>
+                <h6 className="text-center ">ICO will Start in...</h6>
               </div>
             </div>
           </div>

@@ -46,14 +46,14 @@ const index = () => {
     CHECK_ACCOUNT_BALANCE,
     setAccount,
     setLoader,
-    addTokenToMeteMask,
+    addTokenToMetaMask,
     TOKEN_ADDRESS,
     loader,
     account,
     currency,} =useContext(TOKEN_ICO_CONTEXT);
 
     const [ownerModel,setOwnerModel]=useState(false);
-    const [buyModel,setBuyModel]=useState(true);
+    const [buyModel,setBuyModel]=useState(false);
     const [tranferModel,setTransferModel]=useState(false);
     const [transferCurrency,setTransferCurrency]=useState(false);
     const [openDonote,setOpenDonote]=useState(false);
@@ -85,7 +85,7 @@ const index = () => {
       details ={details}
       account={account}
     setTransferCurrency={setTransferCurrency}
-      setTranferModel={setTransferModel}
+      setTransferModel={setTransferModel}
       setOpenDonote={setOpenDonote}
       TOKEN_WITHDRAW={TOKEN_WITHDRAW}
       setOpenUpdatePrice={setOpenUpdatePrice}
@@ -171,10 +171,10 @@ openUpdatePrice&&
   />
 }
 
-{
+{/* {
   loader && 
   <Loader/>
-}
+} */}
 
 <Header
 account={account}
@@ -197,7 +197,7 @@ setBuyModel={setBuyModel}
  setAccount={setAccount}
  setLoader={setLoader}
  details={details}
- addTokenToMeteMask={addTokenToMeteMask}
+ addTokenToMetaMask={addTokenToMetaMask}
  />
  <About/>
  <Features/>

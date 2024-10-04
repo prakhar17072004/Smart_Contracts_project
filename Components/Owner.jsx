@@ -2,12 +2,12 @@ import React from "react";
 import { FaPlus } from "react-icons/fa6";
 
 const Owner = ({
-  setOwnerModal,
+  setOwnerModel,
   currency,
   details,
   account,
   setTransferCurrency,
-  setTranferModal,
+  setTransferModel,
   setOpenDonote,
   TOKEN_WITHDRAW,
   setOpenUpdatePrice,
@@ -27,7 +27,7 @@ const Owner = ({
             </div>
             <div className="team__social ul_li_center">
               <span
-                onClick={() => (setOwnerModal(false), setTranferModal(true))}
+                onClick={() => (setOwnerModel(false),setTransferModel(true))}
                 className="h-icon"
                 style={{
                   cursor: "pointer",
@@ -52,7 +52,7 @@ const Owner = ({
             <div className="team__social ul_li_center">
               <span
                 onClick={() => (
-                  setOwnerModal(false), setTransferCurrency(true)
+                  setOwnerModel(false), setTransferCurrency(true)
                 )}
                 className="h-icon"
                 style={{
@@ -74,7 +74,7 @@ const Owner = ({
             </div>
             <div className="team__social ul_li_center">
               <span
-                onClick={() => (setOwnerModal(false), setOpenDonote(true))}
+                onClick={() => (setOwnerModel(false), setOpenDonote(true))}
                 className="h-icon"
                 style={{
                   cursor: "pointer",
@@ -120,7 +120,7 @@ const Owner = ({
                 <div className="team__social ul_li_center">
                   <span
                     onClick={() => (
-                      setOwnerModal(false), setOpenUpdateAddress(true)
+                      setOwnerModel(false), setOpenUpdateAddress(true)
                     )}
                     className="h-icon"
                     style={{
@@ -143,7 +143,7 @@ const Owner = ({
                 <div className="team__social ul_li_center">
                   <span
                     onClick={() => (
-                      setOwnerModal(false), setOpenUpdatePrice(true)
+                      setOwnerModel(false), setOpenUpdatePrice(true)
                     )}
                     className="h-icon"
                     style={{

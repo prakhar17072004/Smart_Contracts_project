@@ -151,7 +151,7 @@ export const CHECK_WALLET_CONNECTED = async ()=>{
 
 
    const account  = await window.ethereum.request({method:"eth_accounts"});
-
+   
    if(account.length)
    {
     return account[0];
@@ -209,9 +209,9 @@ export const TOKEN_ICO_CONTRACT = async () => {
 
 export const ERC20 = async(ADDRESS)=>{
   try{
-    const web3Modal = new web3Modal();
+    const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
-   const provider = new ethers.providers.web3provider(connection);
+   const provider = new ethers.providers.Web3provider(connection);
    const network = provider.getNetwork();
    const signer = provider.getSigner();
 
@@ -291,7 +291,7 @@ export const CHECK_ACCOUNT_BALANCE = async(ADDRESS)=>{
 }
 
 
-export const addTokenToMeteMask = async () => {
+export const addTokenToMetaMask = async () => {
   if (window.ethereum) {
     const tokenDetails = await ERC20(TOKEN_ADDRESS);
     const tokenDecimals = tokenDetails?.decimals;
