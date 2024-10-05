@@ -2,7 +2,7 @@
   pragma solidity ^0.8.0;
 
   interface ERC20{
-    function tranfer(address recipient , uint256 amount) external returns (bool);
+    function transfer(address recipient , uint256 amount) external returns (bool);
     function blanceOf(address account) external view returns(uint256);
     function allowance(address owner, address spender) external view returns (uint256);
     function approve(address spender, uint256) external returns (bool);
@@ -25,12 +25,12 @@
 
 //update the address of owner
      constructor(){
-        owner==msg.sender;
+        owner=msg.sender;
      }  
 
 //update address of token
      function updateToken(address _tokenAddress) public onlyOwner{
-      tokenAddress=_tokenAddress;
+      tokenAddress =_tokenAddress;
 
      }
 
@@ -51,7 +51,11 @@
     require(msg.value == multiply(_tokenAmount,tokenSalePrice),"Insufficent Ether provided for thee token purchase");
  
    ERC20 token = ERC20 (tokenAddress);
-   require(_tokenAmount<=token.blanceOf(address(this)),"Not enough token left for sale");
+   require(_tokenAmount<= token.blanceOf(address(this)),"Not enough token left for sale");
+
+   require(token.transfer(msg.sender,_tokenAmount * 1e18));
+   payable(owner).transfer(msg.value);
+   soldTokens+= _tokenAmount;
  }
 //getTokenDetails
  function getTokenDetails() public  view returns(string memory name, string memory symbol , uint256 balance ,uint256 supply ,uint256 tokenPrice, address tokenAddr ) {
@@ -84,7 +88,7 @@
    ERC20 token = ERC20(tokenAddress);
    uint256 balance = token.blanceOf(address(this));
    require(balance>0,"No tokens to withdraw");
-   require(token.tranfer(owner,balance),"Transfer failed");
+   require(token.transfer(owner,balance),"Transfer failed");
  }
 
     

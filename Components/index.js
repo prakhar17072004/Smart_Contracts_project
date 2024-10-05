@@ -21,11 +21,27 @@ import TransferToken from "./TransferToken";
 import UpdateAddress from "./UpdateAddress";
 import UpdatePrice from "./UpdatePrice";
 
-
-
-export{
-    Footer, Header,About, Features,Brand, Contact,Faq, Hero,Sidebar,Donate,
-     Loader,Owner, Popup,Progress,Roadmap,Team,Token,TokenInfo,TranferCurrency,TransferToken,UpdatePrice,UpdateAddress
-}
-
-
+export {
+  Footer,
+  Header,
+  About,
+  Features,
+  Brand,
+  Contact,
+  Faq,
+  Hero,
+  Sidebar,
+  Donate,
+  Loader,
+  Owner,
+  Popup,
+  Progress,
+  Roadmap,
+  Team,
+  Token,
+  TokenInfo,
+  TranferCurrency,
+  TransferToken,
+  UpdatePrice,
+  UpdateAddress,
+};
