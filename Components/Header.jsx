@@ -12,11 +12,11 @@ const Header = ({
   ownerModel,
 }) => {
   const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(false);
-    // const connectWallet = async () => {
-    // setLoader(true);
-    // const address = await CONNECTED_WALLET();
-    // setAccount(address);
-    //  }
+    const connectWallet = async () => {
+    setLoader(true);
+    const address = await CONNECTED_WALLET();
+    setAccount(address);
+     }
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
       setIsMetaMaskInstalled(true);
@@ -128,7 +128,7 @@ const Header = ({
                 </div>
               ) : (
                 <div className="header__account">
-                  <a onClick={() => connectMetamask()}>Connect Wallet</a>
+                  <a onClick={() => connectWallet()}>Connect Wallet</a>
                 </div>
               )}
             </div>
