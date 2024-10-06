@@ -9,4 +9,4 @@ export const convertTime = (time) => {
 
 //address.slice(0, 4): This takes the first four characters of the address. 
 //For example, if the address is 0x1234567890abcdef, this part would return 0x12
-export const shortAddress  = (address) => `${address?.slice(0,4)}...${address?.slice(address.length-4)}`;
+export const shortAddress =(address) => `${address?.slice(0,4)}...${address?.slice(address.length-4)}`;

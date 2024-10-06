@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 const Hero = ({
   setBuyModel,
   account,
-  CONNECTED_WALLET,
+  CONNECT_WALLET,
   setAccount,
   setLoader,
   details,
@@ -15,9 +15,9 @@ const Hero = ({
 
   const connectWallet = async () => {
     setLoader(true);
-    const address = await CONNECTED_WALLET();
+    const address = await CONNECT_WALLET();
 
-    console.log(CONNECTED_WALLET);
+    console.log(CONNECT_WALLET);
     setAccount(address);
   };
   const [percentage, setPercentage] = useState();

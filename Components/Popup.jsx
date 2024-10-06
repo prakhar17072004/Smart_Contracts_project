@@ -1,5 +1,5 @@
 import React ,{useState,useEffect}from "react";
-import { shortenAddress } from "../Utils";
+import { shortAddress } from "../Utils";
 
 
 const Popup = (
@@ -58,7 +58,7 @@ const Popup = (
               </div>
 
               <div className="col-lg-12 mb-20">
-              <textarea disabled name="message" cols="30" rows="10" placeholder={`Current Price: ${details?.tokenBal}${details?.symbol} Token Address:${details?.tokenBal}${shortenAddress(details?.tokenAddr)}`}></textarea>
+              <textarea disabled name="message" cols="30" rows="10" placeholder={`Current Price: ${details?.tokenBal}${details?.symbol} Token Address:${details?.tokenBal}${shortAddress(details?.tokenAddr)}`}></textarea>
               </div>
 
               <div className="ico-contact__btn text-center mt-10">

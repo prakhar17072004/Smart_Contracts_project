@@ -12,11 +12,11 @@ import Owner from "./Owner";
 import Popup from "./Popup";
 import Progress from "./Progress";
 import Roadmap from "./Roadmap";
-import Sidebar from "./SideBar";
+import SideBar from "./SideBar";
 import Team from "./Team";
 import Token from "./Token";
 import TokenInfo from "./TokenInfo";
-import TranferCurrency from "./TransferCurrency";
+import TransferCurrency from "./TransferCurrency";
 import TransferToken from "./TransferToken";
 import UpdateAddress from "./UpdateAddress";
 import UpdatePrice from "./UpdatePrice";
@@ -30,7 +30,7 @@ export {
   Contact,
   Faq,
   Hero,
-  Sidebar,
+  SideBar,
   Donate,
   Loader,
   Owner,
@@ -40,7 +40,7 @@ export {
   Team,
   Token,
   TokenInfo,
-  TranferCurrency,
+  TransferCurrency,
   TransferToken,
   UpdatePrice,
   UpdateAddress,

@@ -38,12 +38,12 @@ const Header = ({
   {
     if(typeof window.ethereum !== "undefined"){
       setIsMetaMaskInstall(true);
-      window.ethereum.on("account changed",handleAccountsChanged);
+      window.ethereum.on("accountChanged",handleAccountsChanged);
     }
 
     return()=> {
       if(typeof window.ethereum !== "undefined"){
-        window.ethereum.removeListener("accountsChanges",handleAccountsChanged);
+        window.ethereum.removeListener("accountsChanged",handleAccountsChanged);
       }
     }
   },[])
@@ -135,7 +135,7 @@ const Header = ({
                   <a onClick={()=> navigator.clipboard.writeText(details?.address)}> 
                     
                        {shortAddress(details?.address)} : {" "} 
-                       {details?.maticBal?.slice(0,6)}
+                       {details?.maticBal?.slice(0,4)}
                        {currency}
                     
                   </a>
@@ -143,9 +143,9 @@ const Header = ({
                                 <a className="thm-btn" onClick ={()=> connectWallet()}>Connect  Wallet</a>
                           </div>)
               }
-              <div className="header__acount connect-wlt-btn disconnect-btn">
+              {/* <div className="header__acount connect-wlt-btn disconnect-btn">
                                 <a className="thm-btn"  onClick ={()=>disconnectWallet}>Disconnect  Wallet</a>
-              </div>
+              </div> */}
            </div>
             
           </div>

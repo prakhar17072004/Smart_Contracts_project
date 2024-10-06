@@ -162,11 +162,11 @@ const Index = () => {
            )
         }
 
-        {
+        {/* {
           loader && (
             <Loader/>
           )
-        }
+        } */}
 
 
       <Header

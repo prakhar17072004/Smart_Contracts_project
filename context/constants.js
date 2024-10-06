@@ -1,4 +1,5 @@
-import { ethers } from "ethers";
+import { ethers,providers } from 'ethers';
+
 import Web3Modal from "web3modal";
 
 //INTERNAL IMPORT

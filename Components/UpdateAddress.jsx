@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { shortenAddress } from "../Utils";
+import { shortAddress } from "../Utils";
 
 const UpdateAddress= ({
   details,
@@ -65,7 +65,7 @@ const [transferToken, setTransferToken]=useState();
                 <strong>Current Price:</strong> {details?.tokenPrice} {currency}&nbsp; &nbsp; 
                 <strong>Token Balance:</strong>{details?.tokenBal}{" "}{details?.symbol} &nbsp; &nbsp;  
                 <strong onClick={()=>navigator.clipboard.writeText(details?.tokenAddr)}>Token Address </strong>  
-                           {details?.tokenBal} {shortenAddress(details?.tokenAddr)}
+                           {details?.tokenBal} {shortAddress(details?.tokenAddr)}
                           </p>
               <div className="ico-contract__btn text-center mt-10">
                 <button

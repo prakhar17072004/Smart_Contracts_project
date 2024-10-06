@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { ethers } from "ethers";
+import { ethers } from 'ethers';
+import * as utils from 'ethers/utils';
+
 import toast from "react-hot-toast";
 
 import {
@@ -10,7 +12,7 @@ import {
   ERC20_CONTRACT,
   GET_BALANCE,
   CHECK_ACCOUNT_BALANCE,
-  addtokenToMetaMask,
+  addTokenToMetaMask,
   TOKEN_ADDRESS,
 } from "./constants";
 
@@ -277,7 +279,7 @@ export const TOKEN_ICO_Provider = ({ children }) => {
         CHECK_ACCOUNT_BALANCE,
         setAccount,
         setLoader,
-        addtokenToMetaMask,
+        addTokenToMetaMask,
         TOKEN_ADDRESS,
         account,
         loader,
