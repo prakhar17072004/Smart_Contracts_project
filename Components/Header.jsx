@@ -134,7 +134,7 @@ const Header = ({
                 account ?( <div className="header__account connect-wlt-btn">
                   <a onClick={()=> navigator.clipboard.writeText(details?.address)}> 
                     
-                       {shortAddress(details?.address)} : {" "} 
+                       {shortAddress(details?.address)} :{" "} 
                        {details?.maticBal?.slice(0,4)}
                        {currency}
                     

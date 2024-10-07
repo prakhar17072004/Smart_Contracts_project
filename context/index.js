@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ethers } from 'ethers';
-import * as utils from 'ethers/utils';
+//import * as utils from 'ethers/utils';
 
 import toast from "react-hot-toast";
 
@@ -51,7 +51,7 @@ export const TOKEN_ICO_Provider = ({ children }) => {
           tokenBal: ethers.utils.formatEther(tokenDetails.balance.toString()),
           name: tokenDetails.name,
           symbol: tokenDetails.symbol,
-          supply: ethers.utils.formatEther(tokenDetails.supply.toString()),
+          supply: ethers.util.formatEther(tokenDetails.supply.toString()),
           tokenPrice: ethers.utils.formatEther(
             tokenDetails.tokenPrice.toString()
           ),
