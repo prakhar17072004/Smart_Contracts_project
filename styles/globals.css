@@ -44,3 +44,28 @@
   }
 }
 /* END LOADER */
+.dropdown-menu {
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  right: 0;
+  top: 100%;
+  min-width: 150px;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.dropdown-menu ul li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #f0f0f0;
+}

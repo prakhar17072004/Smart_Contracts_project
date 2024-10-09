@@ -58,7 +58,7 @@
    soldTokens+= _tokenAmount;
  }
 //getTokenDetails
- function getTokenDetails() public  view returns(string memory name, string memory symbol , uint256 balance ,uint256 supply ,uint256 tokenPrice, address tokenAddr ) {
+ function getTokenDetails() public  view returns (string memory name, string memory symbol , uint256 balance ,uint256 supply ,uint256 tokenPrice, address tokenAddr ) {
    ERC20 token = ERC20(tokenAddress);
 
     return(

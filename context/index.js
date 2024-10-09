@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ethers } from 'ethers';
-//import * as utils from 'ethers/utils';
+import * as utils from 'ethers/utils';
 
 import toast from "react-hot-toast";
 
@@ -14,6 +14,7 @@ import {
   CHECK_ACCOUNT_BALANCE,
   addTokenToMetaMask,
   TOKEN_ADDRESS,
+
 } from "./constants";
 
 export const TOKEN_ICO_Context = React.createContext();
@@ -40,6 +41,9 @@ export const TOKEN_ICO_Provider = ({ children }) => {
         setAccount(address);
 
         const contract = await TOKEN_ICO_CONTRACT();
+        if (!contract) {
+          throw new Error("Contract instance is undefined");
+      }
         const tokenDetails = await contract.getTokenDetails();
 
         const contractOwner = await contract.owner();

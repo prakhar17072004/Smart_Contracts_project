@@ -61,9 +61,18 @@ const TransferToken = ({
           </div>
 
           <div className="col-lg-12">
-          <input type="text" placeholder="_sendTo"
-              onChange={(e)=>
-              setToken({...tokenDetails,_amount: e.target.value})}/>
+          <input
+                    type="text"
+                    placeholder="_amount"
+                    onChange={(e)=>{
+                      const value=e.target.value;
+                      setToken({
+                        ...token,
+                        _amount:value,
+                      })}
+                      
+                    }
+                  />
           </div>
 
           <div className="ico-contract__btn text-center mt-10">

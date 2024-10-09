@@ -29,7 +29,7 @@ const Footer = () => {
                     <div className="icon">
                       <img src="assets/img/icon/pdf.svg" alt="" srcset=""/>
                     </div>
-                    <span className="title ">
+                    <span classNameName="title ">
                       <IoCloudDownload/>
                       white paper
                     </span>
@@ -38,13 +38,13 @@ const Footer = () => {
                     <div className="icon">
                       <img src="assets/img/icon/pdf.svg" alt="" srcset=""/>
                     </div>
-                    <span className="title ">
+                    <span classNameName="title ">
                       <IoCloudDownload/>
                       one paper
                     </span>
                    </a>
                    <a href="#" className="footer__document-item text-center">
-                    <div className="icon">
+                    <div classNameName="icon">
                       <img src="assets/img/icon/pdf.svg" alt="" srcset=""/>
                     </div>
                     <span className="title ">
@@ -119,8 +119,8 @@ const Footer = () => {
      
       </div>
     </div>
-    <div class="footer__icon-shape">
-    <div class="icon icon-i">
+    <div className="footer__icon-shape">
+    <div className="icon icon-i">
     <div >
       <img src="assets/img/shape/f_icon1.png"/>
     </div>

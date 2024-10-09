@@ -126,35 +126,35 @@ const Hero = ({
       </div>
       <div className="hero__shape">
         <div className="shape shape--1">
-          <img src="assets/img/shape/h_shape.png" alt="hell3" srcset="" />
+          <img src="assets/img/shape/h_shape.png" alt="hell3" srcSet="" />
         </div>
         <div className="shape shape--2">
-          <img src="assets/img/shape/h_shape2.png" alt="hell3" srcset="" />
+          <img src="assets/img/shape/h_shape2.png" alt="hell3" srcSet="" />
         </div>
         <div className="shape shape--3">
-          <img src="assets/img/shape/h_shape3.png" alt="hell3" srcset="" />
+          <img src="assets/img/shape/h_shape3.png" alt="hell3" srcSet="" />
         </div>
 
         
       </div>
       <div className="hero__coin">
         <div className="coin coin--1">
-          <img src="assets/img/icon/coin1.png" alt="" srcset="" />
+          <img src="assets/img/icon/coin1.png" alt="" srcSet="" />
         </div>
         <div className="coin coin--2">
-          <img src="assets/img/icon/coin2.png" alt="" srcset="" />
+          <img src="assets/img/icon/coin2.png" alt="" srcSet="" />
         </div>
         <div className="coin coin--3">
-          <img src="assets/img/icon/coin3.png" alt="" srcset="" />
+          <img src="assets/img/icon/coin3.png" alt="" srcSet="" />
         </div>
         <div className="coin coin--4">
-          <img src="assets/img/icon/coin4.png" alt="" srcset="" />
+          <img src="assets/img/icon/coin4.png" alt="" srcSet="" />
         </div>
         <div className="coin coin--5">
-          <img src="assets/img/icon/coin5.png" alt="" srcset="" />
+          <img src="assets/img/icon/coin5.png" alt="" srcSet="" />
         </div>
         <div className="coin coin--6">
-          <img src="assets/img/icon/coin6.png" alt="" srcset="" />
+          <img src="assets/img/icon/coin6.png" alt="" srcSet="" />
         </div>
         
       </div>

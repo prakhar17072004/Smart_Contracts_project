@@ -64,10 +64,15 @@ const Index = () => {
       console.log("Fetching data...");
       const items = await TOKEN_ICO();
       setDetails(items);
+      console.log(setDetails);
+      
     };
+    console.log(fetchData());
     fetchData();
-  }, [account]); // Include TOKEN_ICO in dependency array if it can change
-
+  }, [account]);
+  
+  // Include TOKEN_ICO in dependency array if it can change
+     //console.log(setDetails);
   return (
     <>
       <div className="body_wrap">

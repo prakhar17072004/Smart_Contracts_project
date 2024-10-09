@@ -1,4 +1,4 @@
-import { ethers,providers } from 'ethers';
+import { ethers, providers } from 'ethers';
 
 import Web3Modal from "web3modal";
 
@@ -181,76 +181,55 @@ export const CONNECT_WALLET = async () => {
 
 
 
-const fetchContract = (address, abi,signer) =>
-   new ethers.Contract(address, abi, signer);
+const fetchContract = (address, abi,signer) =>{
+  return new ethers.Contract(address, abi, signer);
+};
+  
 
 export const TOKEN_ICO_CONTRACT = async () => {
+  try {
+    const web3Modal = new Web3Modal();
+    const connection = await web3Modal.connect();
+    
+    // Correct usage of ethers.BrowserProvider
+    const provider = new ethers.BrowserProvider(connection);
+    const signer = await provider.getSigner();
 
-  try{
-   const web3Modal = new Web3Modal();
-   const connection = await web3Modal.connect();
-   const provider = new ethers.providers.Web3Provider(connection);
-
-   const signer = provider.getSigner();
-   
-   const contract = fetchContract(CONTRACT_ADDRESS,CONTRACT_ABI,signer);
-
-   return contract;
-  }catch(error){
+    const contract = fetchContract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+    return contract;
+  } catch (error) {
     console.log(error);
   }
+};
 
-}
 
 export const ERC20 = async (ADDRESS) => {
+  try {
+    const web3Modal = new Web3Modal();
+    const connection = await web3Modal.connect();
+    
+    const provider = new ethers.BrowserProvider(connection);
+    const signer = await provider.getSigner();
+    
+    const contract = fetchContract(ADDRESS, ERC20_ABI, signer);
 
-  try{
-   const web3Modal = new Web3Modal();
-   const connection = await web3Modal.connect();
-   const provider = new ethers.providers.Web3Provider(connection);
-
-   
-   const network = await provider.getNetwork();
-   const signer = await provider.getSigner();
-
-   const contract = fetchContract(ADDRESS,ERC20_ABI,signer);
-   
-   const userAddress = signer.getAddress();
-   const balance = await contract.balanceOf(userAddress);
-
-   const name = await contract.name();
-   const symbol = await contract.symbol();
-   const supply = await contract.totalSupply();
-   const decimals = await contract.decimals();
-   const address = await contract.address();
-
-   const token = {
-    address:address,
-    name:name,
-    symbol:symbol,
-    decimals:decimals,
-    supply:ethers.utils.formatEther(supply.toString()),
-    balance:ethers.utils.formatEther(balance.toString()),
-    chainId:network.chainId,
-   }
-
-   console.log(token);
-   return token;
-
-  }catch(error){
+    // Rest of your logic here
+    return contract;
+  } catch (error) {
     console.log(error);
   }
+};
 
-}
 
 export const ERC20_CONTRACT = async (CONTRACT_ADDRESS) => {
 
   try{
    const web3Modal = new Web3Modal();
    const connection = await web3Modal.connect();
-   const provider = new ethers.providers.Web3Provider(connection);
+   const provider = new ethers.BrowserProvider(connection); 
 
-   const signer = provider.getSigner();
+
+   const signer =  await provider.getSigner();
    
    const contract = fetchContract(CONTRACT_ADDRESS, ERC20_ABI,signer);
 
@@ -266,8 +245,9 @@ export const GET_BALANCE = async () => {
   try{
    const web3Modal = new Web3Modal();
    const connection = await web3Modal.connect();
-   const provider = new ethers.providers.Web3Provider(connection);
-   const signer = provider.getSigner();
+   const provider = new ethers.BrowserProvider(connection); 
+
+   const signer = await provider.getSigner();
    
    const maticBal = await signer.getBalance();
    return ethers.utils.formatEther(maticBal.toString());
@@ -284,7 +264,8 @@ export const CHECK_ACCOUNT_BALANCE = async (ADDRESS) => {
   try{
    const web3Modal = new Web3Modal();
    const connection = await web3Modal.connect();
-   const provider = new ethers.providers.Web3Provider(connection);
+   const provider = new ethers.BrowserProvider(connection); 
+
   //  const signer = provider.getSigner();
    
    const maticBal = await provider.getBalance(ADDRESS);
